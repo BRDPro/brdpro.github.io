@@ -8,7 +8,7 @@ on:
 jobs:
   dev-org-renew:
     runs-on: ubuntu-latest
-    environment: AFDevOrgRenew
+    environment: AFDevOrg1Renew
     steps:
       - uses: actions/checkout@v4
         with: 
@@ -23,7 +23,7 @@ jobs:
         run: |
             echo ${{ secrets.AGENTFORCE_DEV_ORG1_URL }} > ./AGENTFORCE_DEV_ORG1_URL.txt
             ls -al ./AGENTFORCE_DEV_ORG1_URL.txt
-            sf org login sfdx-url -f ./AGENTFORCE_DEV_ORG1_URL.txt -a AFDevOrgRenew -d
+            sf org login sfdx-url -f ./AGENTFORCE_DEV_ORG1_URL.txt -a AFDevOrg1Renew -d
       - name: 'Query data'
         run: |
-            sf data query --query "select name from organization" -o AFDevOrgRenew# This is a basic workflow to help you get started with Actions
+            sf data query --query "select name from organization" -o AFDevOrg1Renew# This is a basic workflow to help you get started with Actions
